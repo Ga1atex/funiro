@@ -1,0 +1,242 @@
+.footer {
+
+  // .footer__container
+
+  &__container {}
+
+  // .footer__body
+
+  &__body {
+    display: grid;
+    grid-template-columns: 250px 1fr 290px;
+    @include adaptiv-value("padding-top", 80, 30, 1);
+    @include adaptiv-value("padding-bottom", 60, 30, 1);
+    @include adaptiv-value("column-gap", 80, 0, 1);
+    border-top: 1px solid #d8d8d8;
+
+    @media (max-width: ($md1 + px)) {
+      grid-template-rows: auto auto;
+      grid-template-columns: 1fr 290px;
+    }
+
+    @media (max-width: ($md2 + px)) {
+      display: block;
+    }
+  }
+
+  // .footer__main
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    @media (max-width: ($md1 + px)) {
+      grid-column: span 2;
+      @include adaptiv-value("margin-bottom", 40, 30, 1);
+    }
+  }
+
+  // .footer__logo
+
+  &__logo {
+    margin-bottom: calc(16px / 24px * 1em);
+  }
+
+  // .footer__text
+
+  &__text {
+    color: $darkGreyColor;
+
+    &+& {
+      margin-bottom: 1em;
+    }
+  }
+
+  // .footer__contacts
+
+  &__contacts {}
+
+  // .footer__menu
+
+  &__menu {
+    @media (max-width: ($md2 + px)) {
+      @include adaptiv-value("margin-bottom", 40, 30, 1);
+    }
+  }
+
+  // .footer__subscribe
+
+  &__subscribe {}
+}
+
+.contacts-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  // .contacts-footer__item
+
+  &__item {
+    display: inline-flex;
+    align-items: center;
+    color: $darkGreyColor;
+    transition: all .3s;
+
+    &::before {
+      margin-right: 8px;
+    }
+
+    &+& {
+      @include adaptiv-value("margin-bottom", 16, 10, 1);
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: $orangeColor;
+      }
+    }
+  }
+}
+
+.menu-footer {
+  @media (min-width: ($md3 + px)) {
+    display: flex;
+  }
+
+  // .menu-footer__column
+
+  &__column {
+    @media (min-width: ($md3 + px)) {
+      flex: 0 1 33.3333%;
+    }
+
+    @media (max-width: ($md3 + px)) {
+      @include adaptiv-value("margin-bottom", 30, 15, 1);
+    }
+  }
+
+  // .menu-footer__title
+
+  &__title {
+    cursor: default;
+
+    ._init & {
+      display: flex;
+      width: 100%;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      align-items: center;
+      @extend ._icon-arrow-down;
+
+      &::before {
+        // font-family: "icons";
+        // content: "\e900";
+        @extend %ic;
+        font-size: 12px;
+        transition: transform .3s;
+      }
+    }
+
+    &._active {
+      &::before {
+        transform: rotate(-180deg);
+      }
+    }
+
+    @media (min-width: ($md3 + px)) {
+      margin-bottom: calc(16px/24px * 1em);
+    }
+  }
+
+  // &__arrow {
+  //   margin-left: 8px;
+  //   transition: all .3s ease 0s;
+  //   font-size: 8px;
+
+  //   @media (max-width: ($md3 + px)) {
+  //     font-size: 14px;
+  //   }
+  // }
+
+  // .menu-footer__list
+
+  &__list {
+    padding-top: 15px;
+  }
+
+  // .menu-footer__list-item
+
+  &__list-item {
+    &+& {
+      margin-top: 15px;
+    }
+  }
+
+  // .menu-footer__link
+
+  &__link {
+    color: $darkGreyColor;
+    transition: color .3s;
+    line-height: 120%;
+    font-weight: 500;
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: $orangeColor;
+      }
+    }
+  }
+}
+
+.subscribe {
+
+  // .subscribe__title
+
+  &__title {
+    margin-bottom: calc(16px/24px * 1em);
+  }
+
+  // .subscribe__form
+
+  &__form {
+    display: flex;
+    position: relative;
+
+    .form__error {
+      position: absolute;
+      top: 100%;
+      margin-top: 3px;
+      left: 12px;
+      color: red;
+      font-size: 12px;
+    }
+  }
+
+  // .subscribe__btn
+
+  &__btn {
+    flex: 0 0 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    background-color: $orangeColor;
+    color: #fff;
+    transition: background-color .3s;
+    margin-left: 4px;
+
+    @media(any-hover: hover) {
+      &:hover {
+        background-color: #be825c;
+      }
+    }
+  }
+
+  &__input {
+    width: 100%;
+    padding: 0 12px;
+    background-color: #F4F5F7;
+    color: #828282;
+  }
+}
