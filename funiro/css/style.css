@@ -2571,6 +2571,27 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   margin-bottom: 0.3571428571em;
 }
 
+.cart-list__quantity_plus {
+  font-size: 150%;
+}
+
+.cart-list__quantity_minus {
+  font-size: 150%;
+}
+
+.cart-list__actions {
+  width: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .cart-list__delete {
   color: red;
   font-size: 14px;

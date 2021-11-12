@@ -24,7 +24,7 @@ window.onload = function () {
     //search-form click
     if (target.classList.contains('search-form__icon')) {
       document.querySelector('.search-form').classList.toggle('_active');
-    } else if (!target.closest('.search-form') && document.querySelector('.search-form._active')) {
+    } else if (!target.closest('.search-form') && document.querySelector('.search-form._active')) { //to close it by outside click
       document.querySelector('.search-form').classList.remove('_active');
     }
 
@@ -36,9 +36,9 @@ window.onload = function () {
 
     //add to cart button
     if (target.classList.contains('actions-product__button')) {
-      const productId = target.closest('.item-product').dataset.pid;
-      addToCart(target, productId);
       event.preventDefault();
+      const productId = target.closest('.item-product').dataset.pid;
+      addToCartButton(target, productId);
     }
     // *closest is faster
     // cart-icon click
@@ -52,24 +52,34 @@ window.onload = function () {
     }
 
     if (target.classList.contains('cart-list__delete')) {
-      const productId = target.closest('.cart-list__item').dataset.cartPid;
-      updateCart(target, productId, false);
       event.preventDefault();
+      const cartProduct = target.closest('.cart-list__item');
+      cartProduct.remove();
+      updateCartList(cartProduct, 'delete');
+    }
+
+    if (target.classList.contains('cart-list__quantity_plus')) {
+      event.preventDefault();
+      const cartProduct = target.closest('.cart-list__item');
+      const cartProductQuantity = cartProduct.querySelector('.cart-list__quantity span');
+      cartProductQuantity.innerHTML = ++cartProductQuantity.innerHTML;
+    }
+
+    if (target.classList.contains('cart-list__quantity_minus')) {
+      event.preventDefault();
+      const cartProduct = target.closest('.cart-list__item');
+      updateCartList(cartProduct, 'delete');
     }
     //Header 
     const headerElement = document.querySelector('.header');
-
-    const callback = function (entries, observer) {
+    const headerObserver = new IntersectionObserver(function (entries, observer) {
       if (entries[0].isIntersecting) {
         headerElement.classList.remove('_scroll');
       } else {
         headerElement.classList.add('_scroll');
       }
-    };
-
-    const headerObserver = new IntersectionObserver(callback);
+    });
     headerObserver.observe(headerElement);
-
 
     async function getProducts(button) {
       if (!button.classList.contains('_hold')) {
@@ -94,24 +104,14 @@ window.onload = function () {
 
     function loadProducts(data) {
       const productsItems = document.querySelector('.products__items');
-
-      data.products.forEach(item => {
-        const productId = item.id;
-        const productLabels = item.labels;
-        const productUrl = item.url;
-        const productImage = item.image;
-        const productTitle = item.title;
-        const productText = item.text;
-        const productPrice = item.price;
-        const productOldPrice = item.priceOld;
-        const productShareUrl = item.shareUrl;
-        const productLikeUrl = item.likeUrl;
-
-
+      console.log(data.products);
+      data.products.forEach(product => {
+        // for (let i = 0; i < 4; i++) { 
+        //   let product = data.products[i];
         let productTemplateLabels = '';
-        if (productLabels) {
+        if (product.labels) {
           productTemplateLabels = '<div class="item-product__labels">';
-          productLabels.forEach(labelItem => {
+          product.labels.forEach(labelItem => {
             productTemplateLabels += `<div class="item-product__label item-product__label_${labelItem.type}">${labelItem.value}</div>`;
           });
 
@@ -119,25 +119,25 @@ window.onload = function () {
         }
 
         let template = `
-      <article class="products__item item-product" data-pid="${productId}">
+      <article class="products__item item-product" data-pid="${product.id}">
 							${productTemplateLabels}
-							<a class="item-product__image _ibg" href="${productUrl}">
-								<img src="img/products/${productImage}" alt="${productTitle}">
+							<a class="item-product__image _ibg" href="${product.url}">
+								<img src="img/products/${product.image}" alt="${product.title}">
 							</a>
 							<div class="item-product__body">
 								<div class="item-product__content">
-									<h3 class="item-product__title">${productTitle}</h3>
-									<div class="item-product__text">${productText}</div>
+									<h3 class="item-product__title">${product.title}</h3>
+									<div class="item-product__text">${product.text}</div>
 								</div>
 								<div class="item-product__prices">
-									<div class="item-product__price">${productPrice}</div>
-									${productOldPrice ? `<div class="item-product__price item-product__price_old">${productOldPrice}</div>` : ''}
+									<div class="item-product__price">${product.price}</div>
+									${product.priceOld ? `<div class="item-product__price item-product__price_old">${product.priceOld}</div>` : ''}
 								</div>
 								<div class="item-product__actions actions-product">
 									<div class="actions-product__body">
 										<a class="actions-product__button btn btn_white" href="">Add to cart</a>
-										<a class="actions-product__link _icon-share" href="${productShareUrl}">Share</a>
-										<a class="actions-product__link _icon-favorite" href="${productLikeUrl}">Like</a>
+										<a class="actions-product__link _icon-share" href="${product.shareUrl}">Share</a>
+										<a class="actions-product__link _icon-favorite" href="${product.likeUrl}">Like</a>
 									</div>
 								</div>
 							</div>
@@ -147,7 +147,7 @@ window.onload = function () {
       });
     }
 
-    function addToCart(productButton, productId) {
+    function addToCartButton(productButton, productId) {
       if (!productButton.classList.contains('_hold')) {
         productButton.classList.add('_hold');
         productButton.classList.add('_fly');
@@ -186,53 +186,68 @@ window.onload = function () {
         productImageFly.addEventListener('transitionend', function () {
           if (productButton.classList.contains('_fly')) {
             productImageFly.remove();
-            updateCart(productButton, productId);
+            addToCartList(productButton, productId);
             productButton.classList.remove('_fly');
           }
         });
       }
     }
 
-    function updateCart(productButton, productId, productAdd = true) {
-      const cart = document.querySelector('.cart-header');
-      const cartIcon = cart.querySelector('.cart-header__icon');
-      const cartQuantity = cartIcon.querySelector('.cart-header__quantity');
+    function addToCartList(productButton, productId) {
       const cartProduct = document.querySelector(`[data-cart-pid="${productId}"]`);
       const cartList = document.querySelector('.cart-list');
 
-      if (productAdd) {
-        if (cartQuantity) {
-          cartQuantity.innerHTML = ++cartQuantity.innerHTML;
-        } else {
-          cartIcon.insertAdjacentHTML('beforeend', `<span class="cart-header__icon-quantity">1</span>`);
-        }
-
-        if (!cartProduct) {
-          const product = document.querySelector(`[data-pid="${productId}"]`);
-          const cartProductImage = product.querySelector('.item-product__image').innerHTML;
-          const cartProductTitle = product.querySelector('.item-product__title').innerHTML;
-          const cartProductContent = `
+      if (!cartProduct) {
+        const product = document.querySelector(`[data-pid="${productId}"]`);
+        const cartProductImage = product.querySelector('.item-product__image').innerHTML;
+        const cartProductTitle = product.querySelector('.item-product__title').innerHTML;
+        const cartProductContent = `
         <a class="cart-list__image _ibg" href ="">${cartProductImage}</a>
         <div class="cart-list__body">
           <a class="cart-list__title" href="">${cartProductTitle}</a>
           <div class="cart-list__quantity">Quantity: <span>1</span></div>
-          <a class="cart-list__delete" href="">Delete</a>
+          <div class="cart-list__actions">
+            <button class="cart-list__quantity_plus type="button">+</button>
+            <button class="cart-list__quantity_minus type="button">-</button>
+            <a class="cart-list__delete" href="">Delete</a>
+          </div>
         </div>`;
-          cartList.insertAdjacentHTML('beforeend', `<li class="cart-list__item" data-cart-pid="${productId}">${cartProductContent}</li>`);
-        } else {
-          const cartProductQuantity = cartProduct.querySelector('.cart-list__quantity span');
-          cartProductQuantity.innerHTML = ++cartProductQuantity.innerHTML;
-        }
 
-        productButton.classList.remove('_hold');
-      } else { // DELETE, TODO + - 
+        cartList.insertAdjacentHTML('beforeend', `<li class="cart-list__item" data-cart-pid="${productId}">${cartProductContent}</li>`);
+
+        updateCartList(cartProduct, 'add');
+      } else {
+        const cartProductQuantity = cartProduct.querySelector('.cart-list__quantity span');
+        cartProductQuantity.innerHTML = ++cartProductQuantity.innerHTML;
+      }
+
+      productButton.classList.remove('_hold');
+    }
+
+    function updateCartList(cartProduct, action) {
+      const cart = document.querySelector('.cart-header');
+      const cartList = document.querySelector('.cart-list');
+      const cartIcon = document.querySelector('.cart-header__icon');
+      const cartQuantity = document.querySelector('.cart-header__icon-quantity');
+
+      if (action === 'add') {
+        if (cartQuantity) {
+          // cartQuantity.innerHTML = ++cartQuantity.innerHTML;
+          cartQuantity.innerHTML = cartList.childElementCount;
+        } else {
+          cartIcon.insertAdjacentHTML('beforeend', `<span class="cart-header__icon-quantity">1</span>`);
+        }
+        return;
+      } else if (action === 'delete') {
         const cartProductQuantity = cartProduct.querySelector('.cart-list__quantity span');
         cartProductQuantity.innerHTML = --cartProductQuantity.innerHTML;
+
         if (!parseInt(cartProductQuantity.innerHTML)) {
           cartProduct.remove();
         }
 
-        const cartQuantityValue = --cartQuantity.innerHTML;
+        const cartQuantityValue = cartList.childElementCount;
+        // const cartQuantityValue = --cartQuantity.innerHTML;
 
         if (cartQuantityValue) {
           cartQuantity.innerHTML = cartQuantityValue;
@@ -243,7 +258,6 @@ window.onload = function () {
       }
     }
   }
-
 
   //Furniture Gallery
   const furniture = document.querySelector('.furniture__body');
@@ -272,7 +286,7 @@ window.onload = function () {
 
       furnitureItems.style.cssText = `transform: translate3d(${-position}px, 0,0);`;
 
-      if (Math.abs(distX)) {
+      if (distX) {
         requestAnimationFrame(setMouseGalleryStyle);
       } else {
         furniture.classList.remove('_init');

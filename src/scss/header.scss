@@ -476,6 +476,21 @@
 	&__quantity {
 		font-size: 14px;
 		margin-bottom: calc(5px / 14px * 1em);
+
+		&_plus {
+			font-size: 150%;
+		}
+
+		&_minus {
+			font-size: 150%;
+		}
+	}
+
+	&__actions {
+		width: 60%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 	}
 
 	// .cart-list__delete
