@@ -2,6 +2,7 @@
 let { src, dest } = require("gulp");
 let fs = require('fs');
 let gulp = require("gulp");
+let htmlmin = require('gulp-htmlmin');
 let browsersync = require("browser-sync").create();
 let autoprefixer = require("gulp-autoprefixer");
 let scss = require('gulp-sass')(require('sass'));
@@ -61,7 +62,7 @@ function browserSync(done) {
 			baseDir: "./" + project_name + "/"
 		},
 		notify: false,
-		port: 3000,
+		port: 8082,
 	});
 }
 function json() {
@@ -74,6 +75,10 @@ function html() {
 		.pipe(plumber())
 		.pipe(fileinclude())
 		.pipe(webphtml())
+		.pipe(htmlmin({
+			collapseWhitespace: true,
+			removeComments: true
+		}))
 		.pipe(dest(path.build.html))
 		.pipe(browsersync.stream());
 }

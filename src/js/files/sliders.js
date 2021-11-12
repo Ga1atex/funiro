@@ -65,13 +65,6 @@ function sliders_bild_callback(params) { }
 // MINE CODE
 if (document.querySelector('.slider-main__body')) {
 	new Swiper('.slider-main__body', {
-		/*
-		effect: 'fade',
-		autoplay: {
-			delay: 3000,
-			disableOnInteraction: false,
-		},
-		*/
 		observer: true,
 		observeParents: true,
 		slidesPerView: 1,
@@ -79,16 +72,13 @@ if (document.querySelector('.slider-main__body')) {
 		watchOverflow: true,
 		autoHeight: true,
 		speed: 800,
-		//touchRatio: 0,
-		//simulateTouch: false,
 		loop: true,
 		loopAdditionalSlides: 5,
 		preloadImages: false,
 		parallax: true,
-		//lazy: true,
-		// Dotts
+		// dots
 		pagination: {
-			el: '.controls-slider-main__dotts',
+			el: '.controls-slider-main__dots',
 			clickable: true,
 		},
 		// Arrows
@@ -96,39 +86,73 @@ if (document.querySelector('.slider-main__body')) {
 			nextEl: '.slider-main .slider-arrow_next',
 			prevEl: '.slider-main .slider-arrow_prev',
 		},
-		// breakpoints: {
-		// 	320: {
-		// 		slidesPerView: 1,
-		// 		spaceBetween: 0,
-		// 		autoHeight: true,
-		// 	},
-		// 	768: {
-		// 		slidesPerView: 2,
-		// 		spaceBetween: 20,
-		// 	},
-		// 	992: {
-		// 		slidesPerView: 3,
-		// 		spaceBetween: 20,
-		// 	},
-		// 	1268: {
-		// 		slidesPerView: 4,
-		// 		spaceBetween: 30,
-		// 	},
-		// },
-		// on: {
-		// 	lazyImageReady: function () {
-		// 		ibg();
-		// 	},
-		// }
-		// if need scrollbar
-		//scrollbar: {
-		//	el: '.swiper-scrollbar',
-		//},
 	});
 }
 
+if (document.querySelector('.slider-rooms__body')) {
+	new Swiper('.slider-rooms__body', {
+		observer: true,
+		observeParents: true,
+		slidesPerView: 'auto',
+		spaceBetween: 24,
+		speed: 800,
+		loop: true,
+		watchOverflow: true,
+		loopAdditionalSlides: 5,
+		preloadImages: false,
+		parallax: true,
+		// dots
+		pagination: {
+			el: '.slider-rooms__dots',
+			clickable: true,
+		},
+		// Arrows
+		navigation: {
+			nextEl: '.slider-rooms .slider-arrow_next',
+			prevEl: '.slider-rooms .slider-arrow_prev',
+		},
+	});
+}
 
-
+if (document.querySelector('.slider-tips__body')) {
+	new Swiper('.slider-tips__body', {
+		observer: true,
+		observeParents: true,
+		slidesPerView: 3,
+		spaceBetween: 32,
+		speed: 800,
+		loop: true,
+		watchOverflow: true,
+		// loopAdditionalSlides: 5,
+		preloadImages: false,
+		// parallax: true,
+		// dots
+		pagination: {
+			el: '.slider-tips__dots',
+			clickable: true,
+		},
+		// Arrows
+		navigation: {
+			nextEl: '.slider-tips .slider-arrow_next',
+			prevEl: '.slider-tips .slider-arrow_prev',
+		},
+		breakpoints: {
+			// >=320
+			320: {
+				slidesPerView: 1.1,
+				spaceBetween: 15,
+			},
+			768: {
+				slidesPerView: 2,
+				spaceBetween: 20,
+			},
+			992: {
+				slidesPerView: 3,
+				spaceBetween: 32,
+			},
+		},
+	});
+}
 
 // let slider_about = new Swiper('.about__slider', {
 // 	/*
@@ -149,7 +173,7 @@ if (document.querySelector('.slider-main__body')) {
 // 	//loop: true,
 // 	//preloadImages: false,
 // 	//lazy: true,
-// 	// Dotts
+// 	// dots
 // 	//pagination: {
 // 	//	el: '.slider-quality__pagging',
 // 	//	clickable: true,

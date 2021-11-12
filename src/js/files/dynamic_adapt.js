@@ -71,6 +71,8 @@ DynamicAdapt.prototype.mediaHandler = function (matchMedia, оbjects) {
 			this.moveTo(оbject.place, оbject.element, оbject.destination);
 		}
 	} else {
+		//for returning
+		// for (let i = objects.length - 1; i >= 0; i--) {
 		for (let i = 0; i < оbjects.length; i++) {
 			const оbject = оbjects[i];
 			if (оbject.element.classList.contains(this.daClassname)) {
@@ -92,7 +94,7 @@ DynamicAdapt.prototype.moveTo = function (place, element, destination) {
 		return;
 	}
 	destination.children[place].insertAdjacentElement('beforebegin', element);
-}
+};
 
 // Функция возврата
 DynamicAdapt.prototype.moveBack = function (parent, element, index) {
@@ -102,7 +104,7 @@ DynamicAdapt.prototype.moveBack = function (parent, element, index) {
 	} else {
 		parent.insertAdjacentElement('beforeend', element);
 	}
-}
+};
 
 // Функция получения индекса внутри родителя
 DynamicAdapt.prototype.indexInParent = function (parent, element) {

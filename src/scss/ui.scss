@@ -34,6 +34,7 @@
 }
 
 .slider-arrow {
+	pointer-events: auto;
 	border-radius: 50%;
 	height: 48px;
 	background-color: rgba(#E89F71, .3);
@@ -79,7 +80,8 @@
 .swiper-pagination-bullets {
 	display: flex;
 	flex-wrap: wrap;
-	column-gap: 12px;
+	// column-gap: 12px;
+	// because of flex - gap support
 }
 
 .swiper-pagination-bullet {
@@ -92,10 +94,9 @@
 	align-items: center;
 	margin: 2px 0;
 
-	//todo gap?
-	// &:not(:last-child) {
-	// 	margin-right: calc(20px - 8px);
-	// }
+	&:not(:last-child) {
+		margin-right: calc(20px - 8px - 8px);
+	}
 
 	&::after {
 		content: "";
