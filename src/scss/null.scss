@@ -41,7 +41,7 @@ html {
 html,
 body {
 	height: 100%;
-	min-width: $minWidth;
+	min-width: #{$minWidth + px};
 }
 
 body {

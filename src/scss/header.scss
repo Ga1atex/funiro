@@ -264,7 +264,6 @@
 			}
 		}
 	}
-
 }
 
 .search-form {
@@ -335,13 +334,13 @@
 	@include adaptiv-value("gap", 32, 15, 1);
 
 	// display: flex;
-	@supports (align-items: center) {
-		align-items: center;
+	//for IE 
+	>* {
+		align-self: center;
 	}
 
-	//for IE 
-	.actions-header>* {
-		align-self: center;
+	@supports (align-items: center) {
+		align-items: center;
 	}
 
 	&__item {
