@@ -3760,357 +3760,201 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 
 @media (max-width: 1252px) and (max-width: 1240px) {
   .footer__main {
-    margin-bottom: calc(
-        30px + 10 *
-          ((100vw - 320px) / 920)
-      );
+    margin-bottom: calc(30px + 10 * ((100vw - 320px) / 920));
   }
 }
 
 @media (max-width: 1240px) {
   ._title {
-    font-size: calc(
-        24px + 16 *
-          ((100vw - 320px) / 920)
-      );
+    font-size: calc(24px + 16 * ((100vw - 320px) / 920));
   }
 
   ._footer-title {
-    font-size: calc(
-        20px + 4 *
-          ((100vw - 320px) / 920)
-      );
+    font-size: calc(20px + 4 * ((100vw - 320px) / 920));
   }
 
   .header__search {
-    padding-right: calc(
-        15px + 17 *
-          ((100vw - 320px) / 920)
-      );
+    padding-right: calc(15px + 17 * ((100vw - 320px) / 920));
   }
 
   .actions-header {
-    gap: calc(
-        15px + 17 *
-          ((100vw - 320px) / 920)
-      );
+    gap: calc(15px + 17 * ((100vw - 320px) / 920));
   }
 
   .actions-header__item_user {
-    width: calc(
-        30px + 10 *
-          ((100vw - 320px) / 920)
-      );
+    width: calc(30px + 10 * ((100vw - 320px) / 920));
   }
 
   .actions-header__item_user {
-    height: calc(
-        30px + 10 *
-          ((100vw - 320px) / 920)
-      );
+    height: calc(30px + 10 * ((100vw - 320px) / 920));
   }
 
   .footer__body {
-    padding-top: calc(
-        30px + 50 *
-          ((100vw - 320px) / 920)
-      );
+    padding-top: calc(30px + 50 * ((100vw - 320px) / 920));
   }
 
   .footer__body {
-    padding-bottom: calc(
-        30px + 30 *
-          ((100vw - 320px) / 920)
-      );
+    padding-bottom: calc(30px + 30 * ((100vw - 320px) / 920));
   }
 
   .footer__body {
-    -webkit-column-gap: calc(
-        0px + 80 *
-          ((100vw - 320px) / 920)
-      );
-       -moz-column-gap: calc(
-        0px + 80 *
-          ((100vw - 320px) / 920)
-      );
-            column-gap: calc(
-        0px + 80 *
-          ((100vw - 320px) / 920)
-      );
+    -webkit-column-gap: calc(0px + 80 * ((100vw - 320px) / 920));
+       -moz-column-gap: calc(0px + 80 * ((100vw - 320px) / 920));
+            column-gap: calc(0px + 80 * ((100vw - 320px) / 920));
   }
 
   .contacts-footer__item + .contacts-footer__item {
-    margin-bottom: calc(
-        10px + 6 *
-          ((100vw - 320px) / 920)
-      );
+    margin-bottom: calc(10px + 6 * ((100vw - 320px) / 920));
   }
 
   .main-slider__content {
-    margin-bottom: calc(
-        15px + 65 *
-          ((100vw - 320px) / 920)
-      );
+    margin-bottom: calc(15px + 65 * ((100vw - 320px) / 920));
   }
 
   .content-main {
-    padding-top: calc(
-        15px + 45 *
-          ((100vw - 320px) / 920)
-      );
+    padding-top: calc(15px + 45 * ((100vw - 320px) / 920));
   }
 
   .content-main {
-    padding-bottom: calc(
-        15px + 45 *
-          ((100vw - 320px) / 920)
-      );
+    padding-bottom: calc(15px + 45 * ((100vw - 320px) / 920));
   }
 
   .content-main__title {
-    font-size: calc(
-        24px + 32 *
-          ((100vw - 320px) / 920)
-      );
+    font-size: calc(24px + 32 * ((100vw - 320px) / 920));
   }
 
   .content-main__text {
-    font-size: calc(
-        16px + 4 *
-          ((100vw - 320px) / 920)
-      );
+    font-size: calc(16px + 4 * ((100vw - 320px) / 920));
   }
 
   .content-main__btn {
-    min-height: calc(
-        45px + 33 *
-          ((100vw - 320px) / 920)
-      );
+    min-height: calc(45px + 33 * ((100vw - 320px) / 920));
   }
 
   .content-main__btn {
-    font-size: calc(
-        16px + 4 *
-          ((100vw - 320px) / 920)
-      );
+    font-size: calc(16px + 4 * ((100vw - 320px) / 920));
   }
 
   .slider-main__content {
-    padding: calc(
-        15px + 9 *
-          ((100vw - 320px) / 920)
-      );
+    padding: calc(15px + 9 * ((100vw - 320px) / 920));
   }
 
   .slider-main__title {
-    font-size: calc(
-        22px + 6 *
-          ((100vw - 320px) / 920)
-      );
+    font-size: calc(22px + 6 * ((100vw - 320px) / 920));
   }
 
   .slider-main__price {
-    font-size: calc(
-        16px + 4 *
-          ((100vw - 320px) / 920)
-      );
+    font-size: calc(16px + 4 * ((100vw - 320px) / 920));
   }
 
   .advantages {
-    padding-top: calc(
-        30px + 58 *
-          ((100vw - 320px) / 920)
-      );
+    padding-top: calc(30px + 58 * ((100vw - 320px) / 920));
   }
 
   .advantages {
-    padding-bottom: calc(
-        30px + 58 *
-          ((100vw - 320px) / 920)
-      );
+    padding-bottom: calc(30px + 58 * ((100vw - 320px) / 920));
   }
 
   .products {
-    padding-bottom: calc(
-        30px + 14 *
-          ((100vw - 320px) / 920)
-      );
+    padding-bottom: calc(30px + 14 * ((100vw - 320px) / 920));
   }
 
   .products__items {
-    -webkit-column-gap: calc(
-        5px + 27 *
-          ((100vw - 320px) / 920)
-      );
-       -moz-column-gap: calc(
-        5px + 27 *
-          ((100vw - 320px) / 920)
-      );
-            column-gap: calc(
-        5px + 27 *
-          ((100vw - 320px) / 920)
-      );
+    -webkit-column-gap: calc(5px + 27 * ((100vw - 320px) / 920));
+       -moz-column-gap: calc(5px + 27 * ((100vw - 320px) / 920));
+            column-gap: calc(5px + 27 * ((100vw - 320px) / 920));
   }
 
   .products__items {
-    row-gap: calc(
-        15px + 17 *
-          ((100vw - 320px) / 920)
-      );
+    row-gap: calc(15px + 17 * ((100vw - 320px) / 920));
   }
 
   .item-product__labels {
-    right: calc(
-        10px + 14 *
-          ((100vw - 320px) / 920)
-      );
+    right: calc(10px + 14 * ((100vw - 320px) / 920));
   }
 
   .item-product__labels {
-    top: calc(
-        10px + 14 *
-          ((100vw - 320px) / 920)
-      );
+    top: calc(10px + 14 * ((100vw - 320px) / 920));
   }
 
   .item-product__title {
-    font-size: calc(
-        20px + 4 *
-          ((100vw - 320px) / 920)
-      );
+    font-size: calc(20px + 4 * ((100vw - 320px) / 920));
   }
 
   .item-product__price {
-    font-size: calc(
-        16px + 4 *
-          ((100vw - 320px) / 920)
-      );
+    font-size: calc(16px + 4 * ((100vw - 320px) / 920));
   }
 
   .item-product__price_old {
-    font-size: calc(
-        14px + 2 *
-          ((100vw - 320px) / 920)
-      );
+    font-size: calc(14px + 2 * ((100vw - 320px) / 920));
   }
 
   .item-product__price_old {
-    margin-left: calc(
-        12px + 4 *
-          ((100vw - 320px) / 920)
-      );
+    margin-left: calc(12px + 4 * ((100vw - 320px) / 920));
   }
 
   .rooms {
-    padding-top: calc(
-        30px + 14 *
-          ((100vw - 320px) / 920)
-      );
+    padding-top: calc(30px + 14 * ((100vw - 320px) / 920));
   }
 
   .rooms {
-    padding-bottom: calc(
-        30px + 14 *
-          ((100vw - 320px) / 920)
-      );
+    padding-bottom: calc(30px + 14 * ((100vw - 320px) / 920));
   }
 
   .slider-rooms__slide {
-    min-height: calc(
-        400px + 185 *
-          ((100vw - 320px) / 920)
-      );
+    min-height: calc(400px + 185 * ((100vw - 320px) / 920));
   }
 
   .slider-rooms__content {
-    left: calc(
-        15px + 9 *
-          ((100vw - 320px) / 920)
-      );
+    left: calc(15px + 9 * ((100vw - 320px) / 920));
   }
 
   .slider-rooms__content {
-    bottom: calc(
-        15px + 9 *
-          ((100vw - 320px) / 920)
-      );
+    bottom: calc(15px + 9 * ((100vw - 320px) / 920));
   }
 
   .slider-rooms__content {
-    padding: calc(
-        15px + 17 *
-          ((100vw - 320px) / 920)
-      );
+    padding: calc(15px + 17 * ((100vw - 320px) / 920));
   }
 
   .slider-rooms__title {
-    font-size: calc(
-        24px + 4 *
-          ((100vw - 320px) / 920)
-      );
+    font-size: calc(24px + 4 * ((100vw - 320px) / 920));
   }
 
   .tips {
-    padding-top: calc(
-        30px + 14 *
-          ((100vw - 320px) / 920)
-      );
+    padding-top: calc(30px + 14 * ((100vw - 320px) / 920));
   }
 
   .tips {
-    padding-bottom: calc(
-        30px + 14 *
-          ((100vw - 320px) / 920)
-      );
+    padding-bottom: calc(30px + 14 * ((100vw - 320px) / 920));
   }
 
   .slider-tips__body {
-    margin-left: calc(
-        -15px + -17 *
-          ((100vw - 320px) / 920)
-      );
+    margin-left: calc(-15px + -17 * ((100vw - 320px) / 920));
   }
 
   .slider-tips__body {
-    margin-right: calc(
-        -15px + -17 *
-          ((100vw - 320px) / 920)
-      );
+    margin-right: calc(-15px + -17 * ((100vw - 320px) / 920));
   }
 
   .slider-tips__body {
-    padding: calc(
-        15px + 17 *
-          ((100vw - 320px) / 920)
-      );
+    padding: calc(15px + 17 * ((100vw - 320px) / 920));
   }
 
   .slider-tips__title {
-    font-size: calc(
-        18px + 6 *
-          ((100vw - 320px) / 920)
-      );
+    font-size: calc(18px + 6 * ((100vw - 320px) / 920));
   }
 
   .slider-tips__dots {
-    padding-top: calc(
-        0px + 11 *
-          ((100vw - 320px) / 920)
-      );
+    padding-top: calc(0px + 11 * ((100vw - 320px) / 920));
   }
 
   .furniture {
-    padding-bottom: calc(
-        40px + 47 *
-          ((100vw - 320px) / 920)
-      );
+    padding-bottom: calc(40px + 47 * ((100vw - 320px) / 920));
   }
 
   .furniture__label {
-    font-size: calc(
-        16px + 4 *
-          ((100vw - 320px) / 920)
-      );
+    font-size: calc(16px + 4 * ((100vw - 320px) / 920));
   }
 }
 
@@ -4214,17 +4058,11 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 
 @media (max-width: 991.98px) and (max-width: 1240px) {
   .footer__menu {
-    margin-bottom: calc(
-        30px + 10 *
-          ((100vw - 320px) / 920)
-      );
+    margin-bottom: calc(30px + 10 * ((100vw - 320px) / 920));
   }
 
   .rooms__body {
-    margin-bottom: calc(
-        15px + 15 *
-          ((100vw - 320px) / 920)
-      );
+    margin-bottom: calc(15px + 15 * ((100vw - 320px) / 920));
   }
 }
 
@@ -4384,17 +4222,11 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 
 @media (max-width: 767.98px) and (max-width: 1240px) {
   .icon-menu {
-    margin-left: calc(
-        15px + 17 *
-          ((100vw - 320px) / 920)
-      );
+    margin-left: calc(15px + 17 * ((100vw - 320px) / 920));
   }
 
   .menu-footer__column {
-    margin-bottom: calc(
-        15px + 15 *
-          ((100vw - 320px) / 920)
-      );
+    margin-bottom: calc(15px + 15 * ((100vw - 320px) / 920));
   }
 }
 
@@ -4410,40 +4242,25 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 
 @media (min-width: 991.98px) and (max-width: 1240px) {
   .content-main {
-    padding: calc(
-        1px + 59 *
-          ((100vw - 320px) / 920)
-      );
+    padding: calc(1px + 59 * ((100vw - 320px) / 920));
   }
 
   .slider-main__body {
-    width: calc(
-        290px + 644 *
-          ((100vw - 320px) / 920)
-      );
+    width: calc(290px + 644 * ((100vw - 320px) / 920));
   }
 
   .rooms__body {
-    padding-top: calc(
-        30px + 50 *
-          ((100vw - 320px) / 920)
-      );
+    padding-top: calc(30px + 50 * ((100vw - 320px) / 920));
   }
 }
 
 @media (min-width: 767.98px) and (max-width: 1240px) {
   .slider-main__content {
-    right: calc(
-        0px + 40 *
-          ((100vw - 320px) / 920)
-      );
+    right: calc(0px + 40 * ((100vw - 320px) / 920));
   }
 
   .slider-main__content {
-    bottom: calc(
-        0px + 40 *
-          ((100vw - 320px) / 920)
-      );
+    bottom: calc(0px + 40 * ((100vw - 320px) / 920));
   }
 }
 

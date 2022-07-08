@@ -1,49 +1,74 @@
 //Подключение шрифта
-@mixin font($font_name, $file_name, $weight, $style) {
+@mixin font($font_name, $file_name, $weight, $style: 'normal') {
   @font-face {
     font-family: $font_name;
     font-display: swap;
     src: url("../fonts/#{$file_name}.woff2") format("woff2"),
-      url("../fonts/#{$file_name}.woff") format("woff");
+    url("../fonts/#{$file_name}.woff") format("woff");
     font-weight: #{$weight};
     font-style: #{$style};
   }
 }
+
 //Адаптивное свойство
 @mixin adaptiv-value($property, $startSize, $minSize, $type) {
   $addSize: $startSize - $minSize;
+
   @if $type==1 {
     //Только если меньше контейнера
     #{$property}: $startSize + px;
+
     @media (max-width: #{$maxWidthContainer + px}) {
-      #{$property}: calc(
-        #{$minSize + px} + #{$addSize} *
-          ((100vw - 320px) / #{$maxWidthContainer - 320})
-      );
+      #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidthContainer - 320}));
     }
-  } @else if $type==2 {
+  }
+
+  @else if $type==2 {
     //Только если больше контейнера
     #{$property}: $startSize + px;
+
     @media (min-width: #{$maxWidthContainer + px}) {
-      #{$property}: calc(
-        #{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320})
-      );
+      #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
     }
-  } @else {
+  }
+
+  @else {
     //Всегда
-    #{$property}: calc(
-      #{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320})
-    );
+    #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
   }
 }
+
 //Адаптивное свойство до
 @mixin adaptiv-value-to($property, $startSize, $minSize, $minWidth) {
   $addSize: $startSize - $minSize;
+
   //#{$property}: $minSize + px;
   @media (min-width: #{$minWidth + px}) {
-    #{$property}: calc(
-      #{$minSize + px} + #{$addSize} *
-        (((100vw - #{$minWidth + px})) / ((#{$maxWidth - $minWidth})))
-    );
+    #{$property}: calc(#{$minSize + px} + #{$addSize} * (((100vw - #{$minWidth + px})) / ((#{$maxWidth - $minWidth}))));
   }
+}
+
+
+@function parseInt($num) {
+  @return $num / ($num * 0 + 1); // 10px / 1px = 10
+}
+
+@function rem($px) {
+  @return math.div($px, 16)+rem;
+}
+
+@function em($px, $parentFontSize) {
+  @return math.div($px, $parentFontSize)+em;
+}
+
+@function prc($child, $parent) {
+  @return math.div($child, $parent) * 100%;
+}
+
+@mixin responsive-property($prop, $minSize, $maxSize, $maxWidth: 1400px, $fromUnits: 'vw') {
+  #{$prop}: min(calc(#{$minSize} + #{parseInt($maxSize - $minSize)} * ((100#{$fromUnits} - 320px) / #{parseInt($maxWidth)  - 320})), #{$maxSize});
+}
+
+@function resp-value($start, $end) {
+  @return calc(#{$end + px} + #{$start - $end} * (100vw - 320px) / #{$maxWidth - $minWidth});
 }

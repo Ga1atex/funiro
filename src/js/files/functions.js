@@ -190,7 +190,7 @@ data-spollers="768,min" - спойлеры будут работать толь�
 Если нужно что бы в блоке открывался болько один слойлер добавляем атрибут data-one-spoller
 */
 
-// SPOLLERS
+// SPOILERS
 let spoilersArray = document.querySelectorAll('[data-spoilers]');
 
 if (spoilersArray.length) {

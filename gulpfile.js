@@ -1,23 +1,23 @@
 //let replace = require('gulp-replace'); //.pipe(replace('bar', 'foo'))
-let { src, dest } = require("gulp");
+let { src, dest } = require('gulp');
 let fs = require('fs');
-let gulp = require("gulp");
+let gulp = require('gulp');
 let htmlmin = require('gulp-htmlmin');
-let browsersync = require("browser-sync").create();
-let autoprefixer = require("gulp-autoprefixer");
+let browsersync = require('browser-sync').create();
+let autoprefixer = require('gulp-autoprefixer');
 let scss = require('gulp-sass')(require('sass'));
-let group_media = require("gulp-group-css-media-queries");
-let plumber = require("gulp-plumber");
-let del = require("del");
-let imagemin = require("gulp-imagemin");
-let uglify = require("gulp-uglify-es").default;
-let rename = require("gulp-rename");
-let fileinclude = require("gulp-file-include");
-let clean_css = require("gulp-clean-css");
+let group_media = require('gulp-group-css-media-queries');
+let plumber = require('gulp-plumber');
+let del = require('del');
+let imagemin = require('gulp-imagemin');
+let uglify = require('gulp-uglify-es').default;
+let rename = require('gulp-rename');
+let fileinclude = require('gulp-file-include');
+let clean_css = require('gulp-clean-css');
 let newer = require('gulp-newer');
 
 let webp = require('imagemin-webp');
-let webpcss = require("gulp-webpcss");
+let webpcss = require('gulp-webpcss');
 let webphtml = require('gulp-webp-html');
 
 let fonter = require('gulp-fonter');
